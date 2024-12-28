@@ -15,6 +15,8 @@
   width: 100%; /* Make the navbar full width */
   z-index: 1000; /* Ensure it's above other content */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for visibility */
+  white-space: nowrap;
+  overflow: auto;
 }
 
 .navbar ul {

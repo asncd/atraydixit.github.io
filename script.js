@@ -32,10 +32,20 @@ function starseq() {
     ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
     ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
     ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
 
+    ["rgba(255, 120, 120, 1)",Math.random() * 2 + 0.9,0.2], // soft red
     ["rgba(255, 120, 120, 1)",Math.random() * 2 + 0.9,0.2], // soft red
     ["rgba(255, 255, 160, 1)",Math.random() * 2 + 0.9,0.4], // soft yellow
     ["rgba(255, 255, 160, 1)",Math.random() * 2 + 0.9,0.4], // soft yellow
+    ["rgba(255, 255, 160, 1)",Math.random() * 2 + 0.9,0.4], // soft yellow
+    ["rgba(160, 180, 255, 1)",Math.random() * 2 + 0.9,0.85],  // soft blue
     ["rgba(160, 180, 255, 1)",Math.random() * 2 + 0.9,0.85],  // soft blue
     ["rgba(255, 100, 100, 1)",Math.random() * 4 + 0.9,0.9]  // red giant
   ];
