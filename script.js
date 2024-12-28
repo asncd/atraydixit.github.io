@@ -20,14 +20,37 @@ function getRandomStarColor() {
   return Math.random() < 0.8 ? colors[0] : colors[Math.floor(Math.random() * colors.length)];
 }
 
+function starseq() {
+  const csb = [
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+
+    ["rgba(255, 120, 120, 1)",Math.random() * 2 + 0.9,0.2], // soft red
+    ["rgba(255, 255, 160, 1)",Math.random() * 2 + 0.9,0.4], // soft yellow
+    ["rgba(255, 255, 160, 1)",Math.random() * 2 + 0.9,0.4], // soft yellow
+    ["rgba(160, 180, 255, 1)",Math.random() * 2 + 0.9,0.85],  // soft blue
+    ["rgba(255, 100, 100, 1)",Math.random() * 4 + 0.9,0.9]  // red giant
+  ];
+  return csb[Math.floor(Math.random() * csb.length)];
+}
+
 // Generate random stars
 for (let i = 0; i < numStars; i++) {
+  const [c, s, b] = starseq()
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    size: Math.random() * 2 + 0.9, // Star size between 0.5 and 2.5
-    color: getRandomStarColor(),
-    brightness: Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
+    size: s,//Math.random() * 2 + 0.9, // Star size between 0.5 and 2.5
+    color: c,//getRandomStarColor(),
+    brightness: b//Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
   });
 }
 
@@ -69,7 +92,7 @@ function updateStars() {
     // Update positions with velocity
     star.x = (star.x + mouseVelocity.x * 0.2 + canvas.width) % canvas.width; // Wrap horizontally
     star.y = (star.y + mouseVelocity.y * 0.2 + canvas.height) % canvas.height; // Wrap vertically
-    star.brightness = Math.random() + 0.6*star.brightness // twinkle
+    star.brightness = Math.random() + 0.58*star.brightness // twinkle
 /*    //doppler
     if (mouseVelocity.x > 15) {
       star.color = "blue";

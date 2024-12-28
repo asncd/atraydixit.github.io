@@ -9,7 +9,7 @@
 /* Navbar Styles */
 .navbar {
   background-color: #2661ea;
-  padding: 10px 0;
+  padding: 20px 0;
   position: fixed; /* Fix the navbar at the top */
   top: 0; /* Align to the top */
   width: 100%; /* Make the navbar full width */
@@ -30,11 +30,13 @@
 .navbar a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 30px;
 }
 
 .navbar a:hover {
   text-decoration: underline;
+  background-color: limegreen;
+
 }
 
 /* Team Container */
@@ -95,7 +97,7 @@
   width: 200px;
   height: 300px;
   text-align: center;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.85);
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -128,6 +130,47 @@
 }
 
 .team-member2 p {
+  font-size: 16px;
+  color: #555;
+}
+
+
+/* Team Member Card */
+.pub-member {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* Image inside Team Member */
+.pub-member img {
+  width: 80%;
+  object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.pub-member:hover img {
+  transform: scale(1.05);
+}
+
+.pub-member:hover {
+  transform: translateY(-10px);
+}
+
+
+.pub-member p {
   font-size: 16px;
   color: #555;
 }
