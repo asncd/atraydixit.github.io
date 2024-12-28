@@ -57,7 +57,6 @@ function drawStars() {
         ctx.lineTo(stars[j].x, stars[j].y);
         ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / 100})`; // Fade line based on distance
         ctx.lineWidth = 0.5;
-        ctx.globalAlpha = 0.5;
         ctx.stroke();
       }
     }
