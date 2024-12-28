@@ -20,7 +20,7 @@
 .navbar ul {
   list-style-type: none;
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 .navbar li {
@@ -107,7 +107,10 @@ section {
 
 /* Body Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Optima","Arial";
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 120%;
   height: 100vh;
   overflow: hidden;
   color: white;
@@ -137,6 +140,11 @@ body {
 
 .content h1 {
   font-size: 3em;
+}
+
+.content h2 {
+  font-size: 1.5em;
+  line-height: 160%;
 }
 
 .content p {

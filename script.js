@@ -25,9 +25,9 @@ for (let i = 0; i < numStars; i++) {
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    size: Math.random() * 2 + 0.5, // Star size between 0.5 and 2.5
+    size: Math.random() * 2 + 0.9, // Star size between 0.5 and 2.5
     color: getRandomStarColor(),
-    brightness: Math.random() * 0.8 + 0.8, // Brightness between 0.5 and 1
+    brightness: Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
   });
 }
 
@@ -40,6 +40,7 @@ function drawStars() {
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
     ctx.fillStyle = star.color.replace("1)", `${star.brightness})`);
+     ctx.animationDuration = `0.5s`;
     ctx.fill();
   });
 
@@ -56,6 +57,7 @@ function drawStars() {
         ctx.lineTo(stars[j].x, stars[j].y);
         ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / 100})`; // Fade line based on distance
         ctx.lineWidth = 0.5;
+        ctx.globalAlpha = 0.5;
         ctx.stroke();
       }
     }
@@ -68,6 +70,17 @@ function updateStars() {
     // Update positions with velocity
     star.x = (star.x + mouseVelocity.x * 0.2 + canvas.width) % canvas.width; // Wrap horizontally
     star.y = (star.y + mouseVelocity.y * 0.2 + canvas.height) % canvas.height; // Wrap vertically
+    star.brightness = Math.random() + 0.6*star.brightness // twinkle
+/*    //doppler
+    if (mouseVelocity.x > 15) {
+      star.color = "blue";
+    }
+    else if (mouseVelocity.x < (-15)) {
+      star.color = "red"
+    }
+    else {
+      star.color = getRandomStarColor()
+    }*/
   });
 }
 
