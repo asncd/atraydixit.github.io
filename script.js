@@ -3,7 +3,6 @@ const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 const stars = [];
 const numStars = 300; // Adjust for density of stars
 let mouseVelocity = { x: 0, y: 0 }; // Track mouse movement speed
@@ -52,17 +51,25 @@ function starseq() {
   return csb[Math.floor(Math.random() * csb.length)];
 }
 
-// Generate random stars
-for (let i = 0; i < numStars; i++) {
-  const [c, s, b] = starseq()
-  stars.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: s,//Math.random() * 2 + 0.9, // Star size between 0.5 and 2.5
-    color: c,//getRandomStarColor(),
-    brightness: b//Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
-  });
+
+function createStars() {
+  // Generate random stars
+  stars.length = 0
+  const numStars = canvas.width < 768 ? 200 : canvas.width < 1024 ? 300 : 400; // Adjust based on screen size
+  for (let i = 0; i < numStars; i++) {
+    const [c, s, b] = starseq()
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: s,//Math.random() * 2 + 0.9, // Star size between 0.5 and 2.5
+      color: c,//getRandomStarColor(),
+      brightness: b//Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
+    });
+  }
 }
+
+createStars();
+
 
 // Draw stars and connections on canvas
 function drawStars() {
@@ -144,6 +151,7 @@ setInterval(() => {
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  createStars();
   drawStars();
 });
 
