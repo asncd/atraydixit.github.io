@@ -73,16 +73,10 @@ createStars();
 
 // Draw stars and connections on canvas
 function drawStars() {
+  const dist = canvas.width < 768 ? 88 : canvas.width < 1024 ? 100 : 110; // Adjust based on screen size
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw the stars
-  stars.forEach(star => {
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-    ctx.fillStyle = star.color.replace("1)", `${star.brightness})`);
-     ctx.animationDuration = `0.5s`;
-    ctx.fill();
-  });
+
 
   // Draw lines between close stars
   for (let i = 0; i < stars.length; i++) {
@@ -91,16 +85,24 @@ function drawStars() {
       const dy = stars[i].y - stars[j].y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < 100) { // Threshold for drawing lines
+      if (distance < dist) { // Threshold for drawing lines
         ctx.beginPath();
         ctx.moveTo(stars[i].x, stars[i].y);
         ctx.lineTo(stars[j].x, stars[j].y);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / 100})`; // Fade line based on distance
+        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / dist})`; // Fade line based on distance
         ctx.lineWidth = 0.5;
         ctx.stroke();
       }
     }
   }
+  // Draw the stars
+  stars.forEach(star => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+    ctx.fillStyle = star.color.replace("1)", `${star.brightness})`);
+     ctx.animationDuration = `0.5s`;
+    ctx.fill();
+  });
 }
 
 // Update star positions for animation
