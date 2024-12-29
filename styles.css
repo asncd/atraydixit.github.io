@@ -46,15 +46,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  margin-top: 80px; /* Give space for navbar */
+  gap: 15px;
+  margin-top: 20px; /* Give space for navbar */
 }
 
 /* Team Member Card */
 .team-member {
   position: relative;
   width: 200px;
-  height: 300px;
+  height: 310px;
   text-align: center;
   background: rgba(255,255,255,0.8);
   border-radius: 10px;
@@ -97,7 +97,7 @@
 .team-member2 {
   position: relative;
   width: 200px;
-  height: 300px;
+  height: 310px;
   text-align: center;
   background: rgba(255,255,255,0.85);
   border-radius: 10px;
@@ -136,47 +136,6 @@
   color: #555;
 }
 
-
-/* Team Member Card */
-.pub-member {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  text-align: center;
-  background: rgba(255,255,255,0.85);
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  vertical-align: bottom;
-  align-items: center;
-  justify-content: center;
-
-}
-
-/* Image inside Team Member */
-.pub-member img {
-  width: 80%;
-  object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
-  transition: transform 0.3s ease;
-}
-
-/* Hover Effect */
-.pub-member:hover img {
-  transform: scale(1.05);
-}
-
-.pub-member:hover {
-  transform: translateY(-10px);
-}
-
-
-.pub-member p {
-  font-size: 16px;
-  color: #555;
-}
 
 /* Adjust the body or content section to avoid overlap with navbar */
 body {
