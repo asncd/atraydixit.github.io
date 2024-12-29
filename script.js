@@ -102,7 +102,7 @@ function updateStars() {
     // Update positions with velocity
     star.x = (star.x + mouseVelocity.x * 0.2 + canvas.width) % canvas.width; // Wrap horizontally
     star.y = (star.y + mouseVelocity.y * 0.2 + canvas.height) % canvas.height; // Wrap vertically
-    star.brightness = Math.random() + 0.58*star.brightness // twinkle
+    star.brightness = Math.random() + 0.6*star.brightness // twinkle
 /*    //doppler
     if (mouseVelocity.x > 15) {
       star.color = "blue";
