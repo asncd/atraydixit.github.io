@@ -8,36 +8,42 @@ const numStars = 300; // Adjust for density of stars
 let mouseVelocity = { x: 0, y: 0 }; // Track mouse movement speed
 let lastMousePosition = { x: 0, y: 0 }; // Track the last mouse position
 
-function getRandomRgbaColor() {
-  let r,g,b;
+function getRandomStar() {
+  let r,g,b,s,l;
   const randoroll = Math.random()
   if (randoroll < 0.95) {
     r = 255;
     g = 255;
     b = Math.floor(Math.random() * 128)+128;
-  } else if (randoroll < 0.975)  {
+    s = Math.random() * 2 + 1.5;
+    l = 0.6;
+  } else if (randoroll < 0.98)  {
     r = 255;
     g = Math.floor(Math.random() * 128);
     b = Math.floor(Math.random() * 64);
+    s = Math.random() * 2 + 0.9;
+    l = 0.4;
   } else {
-    r = Math.floor(Math.random() * 64);
-    g = Math.floor(Math.random() * 128);
+    r = Math.floor(Math.random() * 51)+51;
+    g = Math.floor(Math.random() * 77)+127;
     b = 255;
+    s = Math.random() * 2 + 2;
+    l = 0.85;
   }
 
 
-  return `rgba(${r}, ${g}, ${b}, 1)`;
+  return [`rgba(${r}, ${g}, ${b}, 1)`,s,l];
 }
 
 function starSeq() {
-  const mainseqcolor = getRandomRgbaColor();
+  const mainseqcolor = getRandomStar();
 
   const csb = [
 
-    [mainseqcolor,Math.random() * 2 + 0.9,0.4], // White (most common)
+    [mainseqcolor[0],mainseqcolor[1],mainseqcolor[2]], // White (most common)
     ["rgba(255, 100, 100, 1)",Math.random() * 2 + 3,0.9]  // red giant
   ];
-  return Math.random() < 0.95 ? csb[0] : csb[1];
+  return Math.random() < 0.96 ? csb[0] : csb[1];
 }
 
 
