@@ -8,47 +8,36 @@ const numStars = 300; // Adjust for density of stars
 let mouseVelocity = { x: 0, y: 0 }; // Track mouse movement speed
 let lastMousePosition = { x: 0, y: 0 }; // Track the last mouse position
 
-// Function to generate a random color (white, red, yellow, light blue)
-function getRandomStarColor() {
-  const colors = [
-    "rgba(255, 255, 255, 1)", // White (most common)
-    "rgba(255, 160, 160, 1)", // Soft red
-    "rgba(255, 255, 160, 1)", // Soft yellow
-    "rgba(160, 180, 255, 1)", // Soft light blue
-  ];
-  return Math.random() < 0.8 ? colors[0] : colors[Math.floor(Math.random() * colors.length)];
+function getRandomRgbaColor() {
+  let r,g,b;
+  const randoroll = Math.random()
+  if (randoroll < 0.95) {
+    r = 255;
+    g = 255;
+    b = Math.floor(Math.random() * 128)+128;
+  } else if (randoroll < 0.975)  {
+    r = 255;
+    g = Math.floor(Math.random() * 128);
+    b = Math.floor(Math.random() * 64);
+  } else {
+    r = Math.floor(Math.random() * 64);
+    g = Math.floor(Math.random() * 128);
+    b = 255;
+  }
+
+
+  return `rgba(${r}, ${g}, ${b}, 1)`;
 }
 
-function starseq() {
-  const csb = [
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
-    ["rgba(255, 255, 255, 1)",Math.random() * 2 + 0.9,0.5], // White (most common)
+function starSeq() {
+  const mainseqcolor = getRandomRgbaColor();
 
-    ["rgba(255, 120, 120, 1)",Math.random() * 2 + 0.9,0.2], // soft red
-    ["rgba(255, 120, 120, 1)",Math.random() * 2 + 0.9,0.2], // soft red
-    ["rgba(255, 255, 160, 1)",Math.random() * 2 + 0.9,0.4], // soft yellow
-    ["rgba(255, 255, 160, 1)",Math.random() * 2 + 0.9,0.4], // soft yellow
-    ["rgba(255, 255, 160, 1)",Math.random() * 2 + 0.9,0.4], // soft yellow
-    ["rgba(160, 180, 255, 1)",Math.random() * 2 + 0.9,0.85],  // soft blue
-    ["rgba(160, 180, 255, 1)",Math.random() * 2 + 0.9,0.85],  // soft blue
-    ["rgba(255, 100, 100, 1)",Math.random() * 4 + 0.9,0.9]  // red giant
+  const csb = [
+
+    [mainseqcolor,Math.random() * 2 + 0.9,0.4], // White (most common)
+    ["rgba(255, 100, 100, 1)",Math.random() * 2 + 3,0.9]  // red giant
   ];
-  return csb[Math.floor(Math.random() * csb.length)];
+  return Math.random() < 0.95 ? csb[0] : csb[1];
 }
 
 
@@ -57,7 +46,7 @@ function createStars() {
   stars.length = 0
   const numStars = canvas.width < 768 ? 200 : canvas.width < 1024 ? 300 : 400; // Adjust based on screen size
   for (let i = 0; i < numStars; i++) {
-    const [c, s, b] = starseq()
+    const [c, s, b] = starSeq()
     stars.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
