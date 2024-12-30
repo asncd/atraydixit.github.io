@@ -41,6 +41,12 @@
 
 }
 
+.container {
+  width: auto;
+  max-width: 65%;
+  padding: 0 15px;
+}
+
 /* Team Container */
 .team-container {
   display: flex;
@@ -212,4 +218,118 @@ body {
 
 .cta-button:hover {
   background-color: #ff4a3a;
+}
+
+/* coral css*/
+
+.recentNews {
+    background-color: rgb(0, 0, 102)  
+}
+.recentNews .news-title {
+    text-align:center;
+    padding-top:30px;
+    padding-bottom:30px;
+    font-family: 'nimbus-sans-condensed', sans-serif;
+    font-size:55px;
+    font-weight:bold;
+    color: #fff;
+}
+.recentNews .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.recentNews .ct-blog {
+    margin-bottom: 30px;
+}
+.ct-blog .inner {
+    background-color: #FFF;
+    padding: 10px;
+    transition: all 0.2s ease-in-out 0s;
+    cursor: pointer;
+    height: 100%;
+}
+.ct-blog .inner:hover {
+    background-color: #e6e6e6;
+}
+.ct-blog .fauxcrop {
+    height: 180px;
+    overflow: hidden;
+}
+.ct-blog .fauxcrop img {
+    width: 100%;
+}
+.ct-blog-content {
+    display: table;
+    padding: 30px 0 28px;
+}
+.ct-blog-content .ct-blog-date {
+    border-right: 1px solid #95A5A6;
+    display: table-cell;
+    font-family: "Lato", sans-serif;
+    padding: 0px 18px 0px 15px;
+    text-align: center;
+}
+.ct-blog-content .ct-blog-date span {
+    font-size: 16px;
+    color: rgb(20, 117, 175);  
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+}
+.ct-blog-content .ct-blog-date strong {
+    font-size: 25px;
+    color: rgb(20, 117, 175);  
+}
+.ct-blog-content .ct-blog-header {
+    color: #000;
+    display: table-cell;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    line-height: 1.1;
+    padding: 0 20px;
+    vertical-align: top;
+}
+.btn-news {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.btn-news.btn-contests a {
+    color: #fff;
+    font-family: 'nimbus-sans-condensed', sans-serif;
+    font-size: 24px;
+    transition: all 0.2s ease-in-out 0s;
+}
+.btn-news.btn-contests a:hover {
+    color: #000;
+}
+
+/* Shrink */
+.hvr-shrink {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-shrink:hover, .hvr-shrink:focus, .hvr-shrink:active {
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.col-lg-4 {
+  padding: 1%;
+}
+
+.col-lg-4 p {
+  padding: 0px 40px;
 }
