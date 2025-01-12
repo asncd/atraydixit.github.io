@@ -14,23 +14,41 @@
   <title>Publications</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 
 </head>
 
 <body>
 
-<!-- Navbar Section -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="https://www.oncko.com">Home</a></li> <!-- Link to the Home Page -->
-      <li><a href="https://www.oncko.com/about">About</a></li> <!-- Link to the About Page -->
-      <li><a href="https://www.oncko.com/team">Team</a></li> <!-- Link to the Team Page -->
-      <li><a href="https://www.oncko.com/publications">Publications</a></li> <!-- Link to the Publication Page -->
-      <li><a href= "https://www.oncko.com/contact">Contact</a></li> <!-- Link to Contact Email -->
+<nav class="bg-sky-600/90 w-full fixed top-0 left-0 z-50 p-4">
+  <div class="flex items-center justify-between text-xl">
+    <a href="https://www.oncko.com" class="text-white text-3xl font-semibold">Oncko</a>
+    <button 
+      id="menuToggle" 
+      class="text-white md:hidden focus:outline-none"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+
+    <ul id="menu" class="hidden md:flex space-x-4">
+      <li><a href="https://www.oncko.com" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
+      <li><a href="https://www.oncko.com/about" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">About</a></li>
+      <li><a href="https://www.oncko.com/team" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
+      <li><a href="https://www.oncko.com/publications" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
+      <li><a href="https://www.oncko.com/contact" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
     </ul>
-  </nav>
+  </div>
+  <ul id="mobileMenu" class="hidden flex-col space-y-2 mt-4 md:hidden">
+    <li><a href="https://www.oncko.com" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
+    <li><a href="https://www.oncko.com/about" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">About</a></li>
+    <li><a href="https://www.oncko.com/team" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
+    <li><a href="https://www.oncko.com/publications" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
+    <li><a href="https://www.oncko.com/contact" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
+  </ul>
+</nav>
 
 <style>
   #starCanvas {
@@ -44,7 +62,7 @@
 </style>
 
 
-  <canvas id="starCanvas"></canvas>
+<canvas class="filter brightness-75" id="starCanvas"></canvas>
 <main class="relative z-10">
   <main class="max-w-7xl mx-auto py-10 px-4">
     <section class="text-center mb-1">
@@ -99,5 +117,12 @@
 </main>
 
   <script src="script.js"></script>
+  <!-- JavaScript function -->
+  <script>
+    function toggleMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>

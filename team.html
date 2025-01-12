@@ -14,25 +14,43 @@
   <title>Team</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-
 
 </head>
 
 <body>
 
-<!-- Navbar Section -->
-  <nav class="navbar justify-items-center border-2">
-    <ul>
-      <li><a href="https://www.oncko.com">Home</a></li> <!-- Link to the Home Page -->
-      <li><a href="https://www.oncko.com/about">About</a></li> <!-- Link to the About Page -->
-      <li><a href="https://www.oncko.com/team">Team</a></li> <!-- Link to the Team Page -->
-      <li><a href="https://www.oncko.com/publications">Publications</a></li> <!-- Link to the Publication Page -->
-      <li><a href= "https://www.oncko.com/contact">Contact</a></li> <!-- Link to Contact Email -->
+<nav class="bg-sky-600/90 w-full fixed top-0 left-0 z-50 p-4">
+  <div class="flex items-center justify-between text-xl">
+    <a href="https://www.oncko.com" class="text-white text-3xl font-semibold">Oncko</a>
+    <button 
+      id="menuToggle" 
+      class="text-white md:hidden focus:outline-none"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+
+    <ul id="menu" class="hidden md:flex space-x-4">
+      <li><a href="https://www.oncko.com" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
+      <li><a href="https://www.oncko.com/about" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">About</a></li>
+      <li><a href="https://www.oncko.com/team" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
+      <li><a href="https://www.oncko.com/publications" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
+      <li><a href="https://www.oncko.com/contact" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
     </ul>
-  </nav>
+  </div>
+  <ul id="mobileMenu" class="hidden flex-col space-y-2 mt-4 md:hidden">
+    <li><a href="https://www.oncko.com" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
+    <li><a href="https://www.oncko.com/about" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">About</a></li>
+    <li><a href="https://www.oncko.com/team" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
+    <li><a href="https://www.oncko.com/publications" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
+    <li><a href="https://www.oncko.com/contact" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
+  </ul>
+</nav>
 
 <style>
   #starCanvas {
@@ -45,7 +63,8 @@
   }
 </style>
 
-<canvas id="starCanvas"></canvas>
+
+<canvas class="filter brightness-75" id="starCanvas"></canvas>
 <main class="relative z-10">
   <main class="max-w-7xl mx-auto py-10 px-4">
     <section class="text-center mb-1">
@@ -108,7 +127,7 @@
   <div class="modal-content rounded-lg bg-white/95">
     <span class="close" data-modal="modal3">&times;</span>
     <p class="text-xl text-left text-slate-700 font-semibold mb-2">Background</p>
-    <p class="text-md text-justify text-slate-700 mb-2">Bill is the former Senior Vice President and Therapeutic Area Head of Oncology Clinical Development at Gilead Sciences Inc. overseeing the company‚Äôs Oncology portfolio. Prior to that, he held Chief Medical Officer roles at Arcus Biosciences and Bellicum Pharmaceuticals, and various leadership roles at AbbVie and Genentech/Roche.<br><br>Bill developed the newborn screening methodology for detecting primary immunodeficient/SCID newborns now incorporated across all States and multiple countries world-wide.</p>
+    <p class="text-md text-justify text-slate-700 mb-2">Bill is the former Senior Vice President and Therapeutic Area Head of Oncology Clinical Development at Gilead Sciences Inc. overseeing the company's Oncology portfolio. Prior to that, he held Chief Medical Officer roles at Arcus Biosciences and Bellicum Pharmaceuticals, and various leadership roles at AbbVie and Genentech/Roche.<br><br>Bill developed the newborn screening methodology for detecting primary immunodeficient/SCID newborns now incorporated across all States and multiple countries world-wide.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2">Education</p>
   <p class="text-md text-justify text-slate-700 mb-2">Bill received his MD and PhD in Immunology from Washington University School of Medicine‚Äôs Medical Scientist Training Program and completed his medical and post-doctoral training in the Divisions of Pediatrics and Medicine at Washington University School of Medicine.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2">My role</p>
@@ -121,11 +140,11 @@
   <div class="modal-content rounded-lg bg-white/95">
     <span class="close" data-modal="modal4">&times;</span>
     <p class="text-xl text-left text-slate-700 font-semibold mb-2">Background</p>
-    <p class="text-md text-justify text-slate-700 mb-2">"Andrés has extensive experience in large-scale computational problem-solving and algorithm optimization. 
+    <p class="text-md text-justify text-slate-700 mb-2">Andrés has extensive experience in large-scale computational problem-solving and algorithm optimization. 
 At Coral Genomics, he collaborated on the development of large scale genomics computational algorithms.
-He has also worked on recommendation systems, digital fraud detection, and large-scale data mining processes."<br><br>Andrés implemented DNARecords, an extensible sparse format for petabyte-scale genomics analysis, tackling computational challenges in large-scale data integration and deep learning model compatibility.</p>
+He has also worked on recommendation systems, digital fraud detection, and large-scale data mining processes.<br><br>Andrés implemented DNARecords, an extensible sparse format for petabyte-scale genomics analysis, tackling computational challenges in large-scale data integration and deep learning model compatibility.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2">Education</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Andrés completed an MSc in Artificial Intelligence after several years working alongside data scientists, drawn by their expertise. His academic background includes a BSc in Mathematics from the University of Almer√≠a, but it‚Äôs the blend of mathematics, machine learning, and large-scale data that fuels his professional growth.</p>
+  <p class="text-md text-justify text-slate-700 mb-2">Andrés completed an MSc in Artificial Intelligence after several years working alongside data scientists, drawn by their expertise. His academic background includes a BSc in Mathematics from the University of Almería, but it is the blend of mathematics, machine learning, and large-scale data that fuels his professional growth.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2">My role</p>
   <p class="text-md text-justify text-slate-700 mb-2">I participate in any activity related to data, machine learning, and IT, contributing to impactful and innovative solutions.</p>
   </div>
@@ -138,7 +157,12 @@ He has also worked on recommendation systems, digital fraud detection, and large
 </main>
 
   <script src="script.js"></script>
-  <script src="modal.js"></script>
-
+  <!-- JavaScript function -->
+  <script>
+    function toggleMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
