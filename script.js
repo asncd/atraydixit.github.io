@@ -40,10 +40,10 @@ function starSeq() {
 
   const csb = [
 
-    [mainseqcolor[0],mainseqcolor[1],mainseqcolor[2]], // White (most common)
-    ["rgba(255, 100, 100, 1)",Math.random() * 2 + 3,0.9]  // red giant
+    [mainseqcolor[0],mainseqcolor[1],mainseqcolor[2]], // White (most common) hardcoded it all to 1
+    ["rgba(255, 100, 100, 1)",Math.random() * 2 + 3,0.9]  // red giant lum=0.9
   ];
-  return Math.random() < 0.96 ? csb[0] : csb[1];
+  return Math.random() < 0.97 ? csb[0] : csb[1];
 }
 
 
@@ -53,12 +53,15 @@ function createStars() {
   const numStars = canvas.width < 768 ? 200 : canvas.width < 1024 ? 300 : 400; // Adjust based on screen size
   for (let i = 0; i < numStars; i++) {
     const [c, s, b] = starSeq()
+    const twinkles = Math.random() * 0.01 + 0.0; // Twinkle speed (0.01-0.03)
     stars.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       size: s,//Math.random() * 2 + 0.9, // Star size between 0.5 and 2.5
       color: c,//getRandomStarColor(),
-      brightness: b//Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
+      brightness: 1.0*b,//Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
+      twinkleSpeed: twinkles//Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
+
     });
   }
 }
@@ -85,13 +88,20 @@ function drawStars() {
         ctx.moveTo(stars[i].x, stars[i].y);
         ctx.lineTo(stars[j].x, stars[j].y);
         ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / dist})`; // Fade line based on distance
-        ctx.lineWidth = 0.5;
+        ctx.lineWidth = 0.33;
         ctx.stroke();
       }
     }
   }
   // Draw the stars
   stars.forEach(star => {
+
+    // Update alpha for twinkling
+    star.brightness += star.twinkleSpeed;
+    if (star.brightness > 1 || star.brightness < 0.5) {
+      star.twinkleSpeed *= -1; // Reverse direction if too bright or dim
+    }
+
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
     ctx.fillStyle = star.color.replace("1)", `${star.brightness})`);
@@ -100,13 +110,13 @@ function drawStars() {
   });
 }
 
+
 // Update star positions for animation
 function updateStars() {
   stars.forEach(star => {
     // Update positions with velocity
     star.x = (star.x + mouseVelocity.x * 0.2 + canvas.width) % canvas.width; // Wrap horizontally
     star.y = (star.y + mouseVelocity.y * 0.2 + canvas.height) % canvas.height; // Wrap vertically
-    star.brightness = Math.random() + 0.6*star.brightness // twinkle
 /*    //doppler
     if (mouseVelocity.x > 15) {
       star.color = "blue";
