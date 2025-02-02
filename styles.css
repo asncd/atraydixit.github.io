@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
+
 
 /* Reset */
 * {
@@ -160,9 +162,8 @@ section {
   background-color: #f4f4f4;
 }
 
-/* Body Styles */
 body {
-  font-family: "Optima","Arial";
+  font-family: 'Inter', sans-serif;
   font-weight: normal;
   font-size: 15px;
   line-height: 120%;
