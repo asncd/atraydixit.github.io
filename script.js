@@ -87,8 +87,8 @@ function drawStars() {
         ctx.beginPath();
         ctx.moveTo(stars[i].x, stars[i].y);
         ctx.lineTo(stars[j].x, stars[j].y);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / dist})`; // Fade line based on distance
-        ctx.lineWidth = 0.33;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - (distance / (1.25*dist))})`; // Fade line based on distance
+        ctx.lineWidth = 0.5;
         ctx.stroke();
       }
     }
@@ -104,10 +104,18 @@ function drawStars() {
 
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-    ctx.fillStyle = star.color.replace("1)", `${star.brightness})`);
+        let gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.size * 2);
+    gradient.addColorStop(0, star.color.replace("1)", `${star.brightness})`));  // Bright center
+    gradient.addColorStop(1, "rgba(0.25, 0.25, 0.25, 0.25)");  // Fades into space
+
+    ctx.fillStyle = gradient;
      ctx.animationDuration = `0.5s`;
     ctx.fill();
+
   });
+
+
+
 }
 
 
@@ -115,8 +123,14 @@ function drawStars() {
 function updateStars() {
   stars.forEach(star => {
     // Update positions with velocity
-    star.x = (star.x + mouseVelocity.x * 0.2 + canvas.width) % canvas.width; // Wrap horizontally
-    star.y = (star.y + mouseVelocity.y * 0.2 + canvas.height) % canvas.height; // Wrap vertically
+//    star.x = (star.x + mouseVelocity.x * 0.2 + canvas.width) % canvas.width; // Wrap horizontally
+//    star.y = (star.y + mouseVelocity.y * 0.2 + canvas.height) % canvas.height; // Wrap vertically
+
+    let speedFactor = (star.brightness - 0.5) *4;  // Closer stars move faster
+    star.x = (star.x + mouseVelocity.x * 0.1 * speedFactor + canvas.width) % canvas.width;
+    star.y = (star.y + mouseVelocity.y * 0.1 * speedFactor + canvas.height) % canvas.height;
+
+
 /*    //doppler
     if (mouseVelocity.x > 15) {
       star.color = "blue";
@@ -130,12 +144,110 @@ function updateStars() {
   });
 }
 
-// Animation loop
-function animate() {
-  updateStars();
-  drawStars();
-  requestAnimationFrame(animate);
+const constellations = [];
+
+// When user clicks, create a temporary constellation
+document.addEventListener("click", (event) => {
+    let constellation = [];
+    let clickX = event.clientX;
+    let clickY = event.clientY;
+
+    // Find the 5 closest stars to the click position
+    let sortedStars = [...stars] // Create a copy to avoid modifying the original
+        .map(star => ({
+            x: star.x,
+            y: star.y,
+            distance: Math.hypot(star.x - clickX, star.y - clickY), // Distance from click
+            alpha: 1.0 // Opacity for fading effect
+        }))
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 10); // Get the 10 closest stars
+
+    if (sortedStars.length > 1) {
+        constellations.push(sortedStars);
+    }
+});
+function drawConstellations() {
+    for (let i = constellations.length - 1; i >= 0; i--) {
+        let constellation = constellations[i];
+        if (constellation.length > 1) {
+            let edges = [];
+
+            // Generate all possible edges
+            for (let j = 0; j < constellation.length; j++) {
+                for (let k = j + 1; k < constellation.length; k++) {
+                    const star1 = constellation[j];
+                    const star2 = constellation[k];
+                    const distance = Math.hypot(star2.x - star1.x, star2.y - star1.y);
+
+                    edges.push({ star1, star2, distance });
+                }
+            }
+
+            // Sort edges by shortest distance (for MST)
+            edges.sort((a, b) => a.distance - b.distance);
+
+            let mstEdges = [];
+            let usedStars = new Set();
+            usedStars.add(constellation[0]); // Start with first star
+
+            while (mstEdges.length < constellation.length - 1) {
+                for (let edge of edges) {
+                    if ((usedStars.has(edge.star1) && !usedStars.has(edge.star2)) ||
+                        (usedStars.has(edge.star2) && !usedStars.has(edge.star1))) {
+
+                        // Ensure no intersections
+                        let intersects = mstEdges.some(e => linesIntersect(e.star1, e.star2, edge.star1, edge.star2));
+                        if (!intersects) {
+                            mstEdges.push(edge);
+                            usedStars.add(edge.star1);
+                            usedStars.add(edge.star2);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // Draw MST edges
+            for (let { star1, star2, distance } of mstEdges) {
+                const minDist = 10, maxDist = 150;
+                const normalizedDist = Math.min(Math.max(distance, minDist), maxDist);
+                const thickness = 4 - (normalizedDist / maxDist) * 2;
+                const brightness = 2 - (normalizedDist / maxDist) * 0.8;
+                const colorIntensity = Math.floor(255 - (normalizedDist / maxDist) * 100);
+                const color = `rgba(255, ${colorIntensity}, ${255}, ${star1.alpha * brightness})`;
+
+                ctx.beginPath();
+                ctx.moveTo(star1.x, star1.y);
+                ctx.lineTo(star2.x, star2.y);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = thickness;
+                ctx.stroke();
+            }
+        }
+
+        // Fade out constellations
+        constellation.forEach(star => (star.alpha -= 0.008));
+        if (constellation[0].alpha <= 0) constellations.splice(i, 1);
+    }
 }
+
+// Helper function to check if two lines intersect
+function linesIntersect(a, b, c, d) {
+    function ccw(p1, p2, p3) {
+        return (p3.y - p1.y) * (p2.x - p1.x) > (p2.y - p1.y) * (p3.x - p1.x);
+    }
+    return ccw(a, c, d) !== ccw(b, c, d) && ccw(a, b, c) !== ccw(a, b, d);
+}
+
+// Ensure this function is called inside animate()
+function animate() {
+    updateStars();
+    drawStars();
+    drawConstellations(); // 🔥 Make sure constellations are drawn
+    requestAnimationFrame(animate);
+}
+
 
 // Capture mouse movement
 document.addEventListener("mousemove", (event) => {
@@ -161,6 +273,7 @@ window.addEventListener("resize", () => {
   createStars();
   drawStars();
 });
+
 
 // Start the animation
 animate();
