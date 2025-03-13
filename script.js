@@ -57,7 +57,7 @@ function createStars() {
     stars.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      size: s,//Math.random() * 2 + 0.9, // Star size between 0.5 and 2.5
+      size: 1.1*s,//Math.random() * 2 + 0.9, // Star size between 0.5 and 2.5
       color: c,//getRandomStarColor(),
       brightness: 1.0*b,//Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
       twinkleSpeed: twinkles//Math.random() * 0.7 + 0.7, // Brightness between 0.5 and 1
@@ -106,6 +106,7 @@ function drawStars() {
     ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         let gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.size * 2);
     gradient.addColorStop(0, star.color.replace("1)", `${star.brightness})`));  // Bright center
+    gradient.addColorStop(0.8, "rgba(0.9, 0.9, 0.9, 0.9)");  // Fades into space
     gradient.addColorStop(1, "rgba(0.25, 0.25, 0.25, 0.25)");  // Fades into space
 
     ctx.fillStyle = gradient;
