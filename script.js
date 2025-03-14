@@ -168,55 +168,50 @@ document.addEventListener("click", (event) => {
         constellations.push(sortedStars);
     }
 });
+
 function drawConstellations() {
     for (let i = constellations.length - 1; i >= 0; i--) {
         let constellation = constellations[i];
         if (constellation.length > 1) {
             let edges = [];
-
-            // Generate all possible edges
+            
+            // Generate potential edges
             for (let j = 0; j < constellation.length; j++) {
                 for (let k = j + 1; k < constellation.length; k++) {
                     const star1 = constellation[j];
                     const star2 = constellation[k];
                     const distance = Math.hypot(star2.x - star1.x, star2.y - star1.y);
-
                     edges.push({ star1, star2, distance });
                 }
             }
 
-            // Sort edges by shortest distance (for MST)
-            edges.sort((a, b) => a.distance - b.distance);
+            // Gabriel Graph: Remove edges that aren't shortest paths
+            let validEdges = [];
+            for (let edge of edges) {
+                let midpoint = {
+                    x: (edge.star1.x + edge.star2.x) / 2,
+                    y: (edge.star1.y + edge.star2.y) / 2
+                };
 
-            let mstEdges = [];
-            let usedStars = new Set();
-            usedStars.add(constellation[0]); // Start with first star
+                let blocked = edges.some(other => {
+                    if (other === edge) return false;
+                    let distToMid = Math.hypot(other.star1.x - midpoint.x, other.star1.y - midpoint.y);
+                    return distToMid < edge.distance / 2.0;
+                });
 
-            while (mstEdges.length < constellation.length - 1) {
-                for (let edge of edges) {
-                    if ((usedStars.has(edge.star1) && !usedStars.has(edge.star2)) ||
-                        (usedStars.has(edge.star2) && !usedStars.has(edge.star1))) {
-
-                        // Ensure no intersections
-                        let intersects = mstEdges.some(e => linesIntersect(e.star1, e.star2, edge.star1, edge.star2));
-                        if (!intersects) {
-                            mstEdges.push(edge);
-                            usedStars.add(edge.star1);
-                            usedStars.add(edge.star2);
-                            break;
-                        }
-                    }
-                }
+                if (!blocked) validEdges.push(edge);
             }
 
-            // Draw MST edges
-            for (let { star1, star2, distance } of mstEdges) {
+            // Draw edges
+            for (let { star1, star2, distance } of validEdges) {
                 const minDist = 10, maxDist = 150;
                 const normalizedDist = Math.min(Math.max(distance, minDist), maxDist);
-                const thickness = 4 - (normalizedDist / maxDist) * 2;
-                const brightness = 2 - (normalizedDist / maxDist) * 0.8;
+                const thickness = 3 - (normalizedDist / maxDist) * 2;
+                const brightness = 1.2 - (normalizedDist / maxDist) * 0.8;
                 const colorIntensity = Math.floor(255 - (normalizedDist / maxDist) * 100);
                 const color = `rgba(255, ${colorIntensity}, ${255}, ${star1.alpha * brightness})`;
+
+
 
                 ctx.beginPath();
                 ctx.moveTo(star1.x, star1.y);
