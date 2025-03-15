@@ -27,15 +27,18 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 
 </head>
 
 <body>
 
-<nav class="bg-sky-600/90 w-full fixed top-0 left-0 z-50 p-4">
+<nav class="bg-sky-600/95 w-full fixed top-0 left-0 z-50 p-4">
   <div class="flex items-center justify-between text-xl">
-    <a href="https://www.oncko.com" class="text-white text-3xl font-semibold">Oncko</a>
-    <button 
+    <a href="https://www.oncko.com" class="h-auto">
+      <img src="img/logo_white.png" alt="onckologo" class="h-12 w-auto"> 
+    </a>    <button 
       id="menuToggle" 
       class="text-white md:hidden focus:outline-none"
       onclick="toggleMenu()"
@@ -73,23 +76,18 @@
 </style>
 
 
+
 <canvas class="filter brightness-100" id="starCanvas"></canvas>
 
 
 <div class="overflow-y-auto justify-items-center grid gap-1 md:grid-cols-1 lg:grid-cols-1 m-2">
 
-<div class="w-1/2">
-  <a href="https://www.oncko.com"><img src="img/logo.png" alt="onckologo"></a>
-</div>
-
-  <p></p>
-<div class="text-2xl font-semibold w-5/6 text-center">
+<div class="text-2xl font-semibold w-full text-center">
   <div style = "background-color: rgba(0, 0, 0, 0.25);">
-    <h2>There are more potential drug combinations than stars in our galaxy (100 billion).</h2><br><h2>We explore this vast space to discover the best therapies for cancer patients.</h2>
+    <h2>There are more potential drug combinations than stars in our galaxy.</h2><br><h2>We explore this vast space to discover the best therapies for cancer patients.</h2>
   </div>
 </div>
 </div>
-
 
 
   <script src="script.js"></script>

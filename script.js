@@ -196,7 +196,7 @@ function drawConstellations() {
                 let blocked = edges.some(other => {
                     if (other === edge) return false;
                     let distToMid = Math.hypot(other.star1.x - midpoint.x, other.star1.y - midpoint.y);
-                    return distToMid < edge.distance / 2.0;
+                    return distToMid < edge.distance / 2;
                 });
 
                 if (!blocked) validEdges.push(edge);
@@ -211,8 +211,6 @@ function drawConstellations() {
                 const colorIntensity = Math.floor(255 - (normalizedDist / maxDist) * 100);
                 const color = `rgba(255, ${colorIntensity}, ${255}, ${star1.alpha * brightness})`;
 
-
-
                 ctx.beginPath();
                 ctx.moveTo(star1.x, star1.y);
                 ctx.lineTo(star2.x, star2.y);
@@ -226,14 +224,6 @@ function drawConstellations() {
         constellation.forEach(star => (star.alpha -= 0.008));
         if (constellation[0].alpha <= 0) constellations.splice(i, 1);
     }
-}
-
-// Helper function to check if two lines intersect
-function linesIntersect(a, b, c, d) {
-    function ccw(p1, p2, p3) {
-        return (p3.y - p1.y) * (p2.x - p1.x) > (p2.y - p1.y) * (p3.x - p1.x);
-    }
-    return ccw(a, c, d) !== ccw(b, c, d) && ccw(a, b, c) !== ccw(a, b, d);
 }
 
 // Ensure this function is called inside animate()
