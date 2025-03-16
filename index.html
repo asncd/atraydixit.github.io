@@ -1,5 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+.circle {
+transition: transform 0.3s ease-in-out;
+}
+.circle-text {
+position: absolute;
+top: 10%; /* Move text to the top of each circle */
+transform: translateY(-50%); /* Center it vertically at the top */
+z-index: 10;
+color: white;
+font-weight: bold;
+text-align: center;
+width: 100%;
+}
+</style>
+
+
 <head>
 
 <!-- Google tag (gtag.js) -->
@@ -49,7 +67,6 @@
 
     <ul id="menu" class="hidden md:flex space-x-4">
       <li><a href="https://www.oncko.com" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
-      <li><a href="https://www.oncko.com/about" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">About</a></li>
       <li><a href="https://www.oncko.com/team" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
       <li><a href="https://www.oncko.com/publications" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
       <li><a href="https://www.oncko.com/contact" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
@@ -64,30 +81,102 @@
   </ul>
 </nav>
 
-<style>
-  #starCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -10; /* Behind content */
-    width: 100%;
-    height: 100%;
-  }
-</style>
-
-
-
 <canvas class="filter brightness-100" id="starCanvas"></canvas>
 
 
-<div class="overflow-y-auto justify-items-center grid gap-1 md:grid-cols-1 lg:grid-cols-1 m-2">
+<body class="flex items-center justify-center h-screen bg-black text-white" id="mainContainer">
+    <div class="relative w-full max-w-[90vw] h-[90vh] flex items-center justify-center overflow-hidden">
+        <svg id="svgContainer" viewBox="0 0 200 200" class="w-full h-full">
+        </svg>
+        <div id="infoBox" class="absolute bottom-10 bg-gray-800 p-4 rounded-lg shadow-lg hidden"></div>
+    </div>
 
-<div class="text-2xl font-semibold w-full text-center">
-  <div style = "background-color: rgba(0, 0, 0, 0.25);">
-    <h2>There are more potential drug combinations than stars in our galaxy.</h2><br><h2>We explore this vast space to discover the best therapies for cancer patients.</h2>
-  </div>
-</div>
-</div>
+    <script>
+const svgContainer = document.getElementById("svgContainer");
+const infoBox = document.getElementById("infoBox");
+const mainContainer = document.getElementById("mainContainer");
+let selectedId = null;
+
+// Base relative sizes for circles
+const baseDiameters = [100, 69,15, 0.5]; // Relative to a standard 200x200 viewBox
+
+// Custom text for each circle
+        const customText = [
+            "4-way drug combos x cancer resistance mechanisms<br>2 x 10<sup>11</sup>",
+            "Stars in galaxy<br>10<sup>11</sup>",
+            "Oncko supertumor combo screens<br>5 x 10<sup>9</sup>",
+            "Historical combo screens<br>5 x 10<sup>6</sup>"
+        ];
+
+function updateCircles() {
+    const minSize = Math.min(window.innerWidth, window.innerHeight);
+    const scaleFactor = (minSize * 0.5) / 200; // Scale based on 75% of screen
+
+    svgContainer.innerHTML = ""; // Clear existing circles
+
+    baseDiameters.forEach((diameter, index) => {
+        const adjustedDiameter = diameter * scaleFactor;
+        
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", "100");
+        circle.setAttribute("cy", "100");
+        circle.setAttribute("r", adjustedDiameter / 2);
+        circle.setAttribute("fill", index % 2 === 0 ? "white" : "black");
+        circle.setAttribute("stroke", "#67e813"); // Ensure visibility
+        circle.setAttribute("stroke-width", "0.2"); // Make tiny circles more visible
+        circle.classList.add("circle", "opacity-95", "cursor-pointer", "transition-transform", "duration-300", "transition-colors", "duration-300");
+
+        // Add hover zoom with custom hex color on hover
+        circle.addEventListener("mouseover", () => {
+            circle.style.transition = "fill 0.3s ease, transform 0.3s ease";
+            circle.style.fill = "#2661ea"; // Custom hex color (e.g., #FF5733)
+        });
+
+        circle.addEventListener("mouseout", () => {
+            circle.style.fill = index % 2 === 0 ? "white" : "black"; // Reset to original fill color
+        });
+
+
+
+        circle.addEventListener("click", (event) => {
+            event.stopPropagation(); // Prevent click event from bubbling to mainContainer
+            if (selectedId === index) {
+                resetView();
+            } else {
+                svgContainer.setAttribute(
+                    "viewBox",
+                    `${100 - adjustedDiameter / 2} ${100 - adjustedDiameter / 2} ${adjustedDiameter} ${adjustedDiameter}`
+                );
+                infoBox.innerHTML = `<h3 class='text-lg font-bold text-center'>${customText[index]}</h3>`;
+                infoBox.classList.remove("hidden");
+                selectedId = index;
+            }
+        });
+
+        svgContainer.appendChild(circle);
+    });
+}
+
+function resetView() {
+    svgContainer.setAttribute("viewBox", "0 0 200 200");
+    infoBox.classList.add("hidden");
+    selectedId = null;
+}
+
+// Update circles on window resize
+window.addEventListener("resize", updateCircles);
+
+// Initial load
+updateCircles();
+
+// Reset view when clicking outside circles
+mainContainer.addEventListener("click", resetView);
+
+
+
+    </script>
+</body>
+
 
 
   <script src="script.js"></script>
