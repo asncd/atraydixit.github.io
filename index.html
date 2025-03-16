@@ -121,7 +121,17 @@ function updateCircles() {
         circle.setAttribute("cx", "100");
         circle.setAttribute("cy", "100");
         circle.setAttribute("r", adjustedDiameter / 2);
-        circle.setAttribute("fill", index % 2 === 0 ? "white" : "black");
+        // Apply different colors
+        let fillColor;
+        if (index === 2) { // For the 3rd circle (index 2)
+            fillColor = "#2661ea"; // Custom color for the 3rd circle (e.g., #FF5733)
+        } else {
+            fillColor = index % 2 === 0 ? "white" : "black"; // Alternating color for other circles
+        }
+        circle.setAttribute("fill", fillColor);
+
+
+
         circle.setAttribute("stroke", "#67e813"); // Ensure visibility
         circle.setAttribute("stroke-width", "0.2"); // Make tiny circles more visible
         circle.classList.add("circle", "opacity-95", "cursor-pointer", "transition-transform", "duration-300", "transition-colors", "duration-300");
@@ -129,11 +139,11 @@ function updateCircles() {
         // Add hover zoom with custom hex color on hover
         circle.addEventListener("mouseover", () => {
             circle.style.transition = "fill 0.3s ease, transform 0.3s ease";
-            circle.style.fill = "#2661ea"; // Custom hex color (e.g., #FF5733)
+            circle.style.fill = "#67e813"; // Custom hex color (e.g., #FF5733)
         });
 
         circle.addEventListener("mouseout", () => {
-            circle.style.fill = index % 2 === 0 ? "white" : "black"; // Reset to original fill color
+            circle.style.fill = fillColor; // Reset to original fill color
         });
 
 
