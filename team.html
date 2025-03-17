@@ -12,9 +12,10 @@
   gtag('config', 'G-SZGFS13KK4');
 </script>
 
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
 
 <!-- Favicon -->
   <link rel="apple-touch-icon" href="img/favicon/favicon-180px.png">
@@ -23,57 +24,61 @@
   <link rel="icon" type="image/png" sizes="144x144" href="img/favicon/favicon-144px.png">
 
 
-  <title>Team</title>
+  <title>Oncko</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
+
+
+  <style>
+    .hidden-top {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    @media (max-width: 768px) {
+      #mainNavbar {
+        display: none; /* Hide main navbar on small screens */
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav class="bg-sky-600/95 w-full fixed top-0 left-0 z-50 p-4">
-  <div class="flex items-center justify-between text-xl">
-    <a href="https://www.oncko.com" class="h-auto">
-      <img src="img/logo_white.png" alt="onckologo" class="h-12 w-auto"> 
-    </a>    <button 
-      id="menuToggle" 
-      class="text-white md:hidden focus:outline-none"
-      onclick="toggleMenu()"
-    >
-      ☰
-    </button>
+  <!-- Top Bar with logo and ☰ button on mobile -->
+<div id="topBar" class="bg-black w-full fixed top-0 left-0 z-50 p-3 flex justify-center items-center transition-all relative border border-white">
+<a href="https://www.oncko.com" class="h-auto">
+      <img src="img/logo_white.png" alt="onckologo" class="h-8 w-auto"> 
+    </a>
 
-    <ul id="menu" class="hidden md:flex space-x-4">
-      <li><a href="https://www.oncko.com" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
-      <li><a href="https://www.oncko.com/team" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
-      <li><a href="https://www.oncko.com/publications" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
-      <li><a href="https://www.oncko.com/contact" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
-    </ul>
-  </div>
-  <ul id="mobileMenu" class="hidden flex-col space-y-2 mt-4 md:hidden">
-    <li><a href="https://www.oncko.com" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
-    <li><a href="https://www.oncko.com/about" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">About</a></li>
-    <li><a href="https://www.oncko.com/team" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
-    <li><a href="https://www.oncko.com/publications" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
-    <li><a href="https://www.oncko.com/contact" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
+
+  <!-- ☰ button (absolute right) -->
+  <button id="menuToggle" class="text-white text-2xl absolute right-4 md:hidden focus:outline-none" onclick="toggleMenu()">
+    ☰
+  </button>
+</div>
+
+
+<!-- Main Navbar (Evenly Spaced Items) -->
+<nav id="mainNavbar" class="bg-sky-600/95 w-full fixed top-[4rem] left-0 z-40 p-4 transition-all hidden md:flex justify-evenly">
+  <ul class="flex w-full justify-evenly text-xl">
+    <li><a href="https://www.oncko.com" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
+    <li><a href="https://www.oncko.com/team" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
+    <li><a href="https://www.oncko.com/publications" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
+    <li><a href="https://www.oncko.com/contact" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
   </ul>
 </nav>
 
-<style>
-  #starCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -10; /* Behind content */
-    width: 100%;
-    height: 100%;
-  }
-</style>
 
+<!-- Mobile Dropdown Menu (Now correctly positioned) -->
+<ul id="mobileMenu" class="hidden flex-col space-y-2 bg-sky-600 p-4 rounded-lg absolute top-0 left-0 w-full shadow-lg md:hidden pt-[4.5rem]">
+  <li><a href="https://www.oncko.com" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Home</a></li>
+  <li><a href="https://www.oncko.com/team" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Team</a></li>
+  <li><a href="https://www.oncko.com/publications" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Publications</a></li>
+  <li><a href="https://www.oncko.com/contact" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Contact</a></li>
+</ul>
 
 <canvas class="filter brightness-100" id="starCanvas"></canvas>
 <main class="relative z-10">
@@ -243,13 +248,27 @@ He has also worked on recommendation systems, digital fraud detection, and large
 
   <script src="script.js"></script>
     <script src="modal.js"></script>
-
-  <!-- JavaScript function -->
-  <script>
+     <script>
     function toggleMenu() {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.toggle('hidden');
+      document.getElementById("mobileMenu").classList.toggle("hidden");
     }
+
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function() {
+      let topBar = document.getElementById("topBar");
+      let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        // Scrolling Down
+        topBar.classList.add("hidden-top");
+      } else {
+        // Scrolling Up
+        topBar.classList.remove("hidden-top");
+      }
+      lastScrollTop = scrollTop;
+    });
   </script>
+
+
 </body>
 </html>

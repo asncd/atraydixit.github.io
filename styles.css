@@ -8,6 +8,35 @@
   box-sizing: border-box;
 }
 
+/* Ensuring top bar stays fixed at the top */
+#topBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Remove any unnecessary margin or padding that might cause it to move */
+#topBar img {
+  margin: 0;
+  padding: 0;
+}
+
+/* Make sure the top bar doesn’t have a flex direction change */
+#topBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 
 /* Navbar Styles */
 .navbar {

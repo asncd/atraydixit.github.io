@@ -1,5 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZGFS13KK4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZGFS13KK4');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Favicon -->
+  <link rel="apple-touch-icon" href="img/favicon/favicon-180px.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32px.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96px.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="img/favicon/favicon-144px.png">
+
+
+  <title>Oncko</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 <style>
 .circle {
@@ -17,78 +45,74 @@ width: 100%;
 }
 </style>
 
-
-<head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZGFS13KK4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SZGFS13KK4');
-</script>
-
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Favicon -->
-  <link rel="apple-touch-icon" href="img/favicon/favicon-180px.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32px.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96px.png">
-  <link rel="icon" type="image/png" sizes="144x144" href="img/favicon/favicon-144px.png">
-
-
-  <title>Oncko</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
-
+  <style>
+    .hidden-top {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    @media (max-width: 768px) {
+      #mainNavbar {
+        display: none; /* Hide main navbar on small screens */
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav class="bg-sky-600/95 w-full fixed top-0 left-0 z-50 p-4">
-  <div class="flex items-center justify-between text-xl">
-    <a href="https://www.oncko.com" class="h-auto">
-      <img src="img/logo_white.png" alt="onckologo" class="h-12 w-auto"> 
-    </a>    <button 
-      id="menuToggle" 
-      class="text-white md:hidden focus:outline-none"
-      onclick="toggleMenu()"
-    >
-      ☰
-    </button>
+  <!-- Top Bar with logo and ☰ button on mobile -->
+<div id="topBar" class="bg-black w-full fixed top-0 left-0 z-50 p-3 flex justify-center items-center transition-all relative border border-white">
+<a href="https://www.oncko.com" class="h-auto">
+      <img src="img/logo_white.png" alt="onckologo" class="h-8 w-auto"> 
+    </a>
 
 
-    <ul id="menu" class="hidden md:flex space-x-4">
-      <li><a href="https://www.oncko.com" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
-      <li><a href="https://www.oncko.com/team" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
-      <li><a href="https://www.oncko.com/publications" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
-      <li><a href="https://www.oncko.com/contact" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
-    </ul>
-  </div>
-  <ul id="mobileMenu" class="hidden flex-col space-y-2 mt-4 md:hidden">
-    <li><a href="https://www.oncko.com" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
-    <li><a href="https://www.oncko.com/about" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">About</a></li>
-    <li><a href="https://www.oncko.com/team" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
-    <li><a href="https://www.oncko.com/publications" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
-    <li><a href="https://www.oncko.com/contact" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
+  <!-- ☰ button (absolute right) -->
+  <button id="menuToggle" class="text-white text-2xl absolute right-4 md:hidden focus:outline-none" onclick="toggleMenu()">
+    ☰
+  </button>
+</div>
+
+
+<!-- Main Navbar (Evenly Spaced Items) -->
+<nav id="mainNavbar" class="bg-sky-600/95 w-full fixed top-[4rem] left-0 z-40 p-4 transition-all hidden md:flex justify-evenly">
+  <ul class="flex w-full justify-evenly text-xl">
+    <li><a href="https://www.oncko.com" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Home</a></li>
+    <li><a href="https://www.oncko.com/team" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Team</a></li>
+    <li><a href="https://www.oncko.com/publications" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Publications</a></li>
+    <li><a href="https://www.oncko.com/contact" class="text-white text-xl px-4 py-2 rounded-lg hover:bg-gray-700 hover:border hover:border-gray-500 transition duration-300">Contact</a></li>
   </ul>
 </nav>
+
+
+<!-- Mobile Dropdown Menu (Now correctly positioned) -->
+<ul id="mobileMenu" class="hidden flex-col space-y-2 bg-sky-600 p-4 rounded-lg absolute top-0 left-0 w-full shadow-lg md:hidden pt-[4.5rem]">
+  <li><a href="https://www.oncko.com" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Home</a></li>
+  <li><a href="https://www.oncko.com/team" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Team</a></li>
+  <li><a href="https://www.oncko.com/publications" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Publications</a></li>
+  <li><a href="https://www.oncko.com/contact" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Contact</a></li>
+</ul>
 
 <canvas class="filter brightness-100" id="starCanvas"></canvas>
 
 
 <body class="flex items-center justify-center h-screen bg-black text-white" id="mainContainer">
-    <div class="relative w-full max-w-[90vw] h-[90vh] flex items-center justify-center overflow-hidden">
-        <svg id="svgContainer" viewBox="0 0 200 200" class="w-full h-full">
-        </svg>
-        <div id="infoBox" class="absolute bottom-10 bg-gray-800 p-4 rounded-lg shadow-lg hidden"></div>
+    <div class="flex flex-col items-center justify-center w-full h-full relative pt-[4.5rem]">
+        <!-- SVG Container for Circles -->
+        <div class="relative w-full max-w-[90vw] h-[90vh] flex items-center justify-center overflow-hidden">
+            <svg id="svgContainer" viewBox="0 0 200 200" class="w-full h-full">
+            </svg>
+            <div id="infoBox" class="absolute bottom-10 bg-gray-800 p-4 rounded-lg shadow-lg hidden">
+            </div>
+        </div>
+
+        <!-- Regular paragraph text below the circles -->
+        <div class="text-center mb-3 px-4 w-full max-w-[80vw] bg-black">
+            <p class="text-white text-2xl">
+                There are more possible drug combinations than stars in our galaxy.<br>
+                <span class="text-sky-600 text-3xl">Oncko</span> discovers the best combination therapies for cancer patients. 
+            </p>
+        </div>
     </div>
 
     <script>
@@ -104,13 +128,13 @@ const baseDiameters = [100, 69,15, 0.5]; // Relative to a standard 200x200 viewB
         const customText = [
             "4-way drug combos x cancer resistance mechanisms<br>2 x 10<sup>11</sup>",
             "Stars in galaxy<br>10<sup>11</sup>",
-            "Oncko supertumor combo screens<br>5 x 10<sup>9</sup>",
+            "Oncko supertumor combo screens by 2026<br>5 x 10<sup>9</sup>",
             "Historical combo screens<br>5 x 10<sup>6</sup>"
         ];
 
 function updateCircles() {
     const minSize = Math.min(window.innerWidth, window.innerHeight);
-    const scaleFactor = (minSize * 0.6) / 200; // Scale based on 75% of screen
+    const scaleFactor = (minSize * 0.5) / 200; // Scale based on 75% of screen
 
     svgContainer.innerHTML = ""; // Clear existing circles
 
@@ -124,15 +148,20 @@ function updateCircles() {
         // Apply different colors
         let fillColor;
         if (index === 2) { // For the 3rd circle (index 2)
-            fillColor = "#2661ea"; // Custom color for the 3rd circle (e.g., #FF5733)
-        } else {
-            fillColor = index % 2 === 0 ? "white" : "black"; // Alternating color for other circles
+            fillColor = "rgb(2 132 199)"; // Custom color for the 3rd circle (e.g., #FF5733)
+        } else if (index == 0) {
+            fillColor = "gray"; // Alternating color for other circles
+        } else if (index == 1) {
+            fillColor = "white"; // Alternating color for other circles
+        } else if (index == 3) {
+            fillColor = "black"; // Alternating color for other circles
         }
+
         circle.setAttribute("fill", fillColor);
 
 
 
-        circle.setAttribute("stroke", "#67e813"); // Ensure visibility
+        circle.setAttribute("stroke", "white"); // Ensure visibility
         circle.setAttribute("stroke-width", "0.2"); // Make tiny circles more visible
         circle.classList.add("circle", "opacity-95", "cursor-pointer", "transition-transform", "duration-300", "transition-colors", "duration-300");
 
@@ -185,17 +214,35 @@ mainContainer.addEventListener("click", resetView);
 
 
     </script>
+
 </body>
 
 
 
   <script src="script.js"></script>
-  <!-- JavaScript function -->
+
   <script>
     function toggleMenu() {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.toggle('hidden');
+      document.getElementById("mobileMenu").classList.toggle("hidden");
     }
+
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function() {
+      let topBar = document.getElementById("topBar");
+      let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        // Scrolling Down
+        topBar.classList.add("hidden-top");
+      } else {
+        // Scrolling Up
+        topBar.classList.remove("hidden-top");
+      }
+      lastScrollTop = scrollTop;
+    });
   </script>
+
+</body>
+
 </body>
 </html>
