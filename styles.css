@@ -21,12 +21,6 @@
   padding: 1rem;
 }
 
-/* Remove any unnecessary margin or padding that might cause it to move */
-#topBar img {
-  margin: 0;
-  padding: 0;
-}
-
 /* Make sure the top bar doesn’t have a flex direction change */
 #topBar {
   display: flex;

@@ -80,8 +80,18 @@
   <li><a href="https://www.oncko.com/contact" class="text-white text-lg px-2 py-2 rounded-lg hover:bg-gray-800 transition duration-300 block">Contact</a></li>
 </ul>
 
+<style>
+  #starCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -10; /* Behind content */
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
 <canvas class="filter brightness-100" id="starCanvas"></canvas>
-<main class="relative z-10">
   <main class="max-w-7xl mx-auto py-10 px-4">
     <section class="text-center mb-1">
       <div style = "background-color: rgba(0, 0, 0, 0.25);">
