@@ -71,7 +71,7 @@ createStars();
 
 // Draw stars and connections on canvas
 function drawStars() {
-  const dist = canvas.width < 768 ? 88 : canvas.width < 1024 ? 100 : 110; // Adjust based on screen size
+  const dist = canvas.width < 768 ? 70 : canvas.width < 1024 ? 80 : 90; // Adjust based on screen size
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 
@@ -88,7 +88,7 @@ function drawStars() {
         ctx.moveTo(stars[i].x, stars[i].y);
         ctx.lineTo(stars[j].x, stars[j].y);
         ctx.strokeStyle = `rgba(255, 255, 255, ${1 - (distance / (1.25*dist))})`; // Fade line based on distance
-        ctx.lineWidth = 0.5;
+        ctx.lineWidth = 0.3;
         ctx.stroke();
       }
     }
@@ -209,7 +209,7 @@ function drawConstellations() {
                 const thickness = 3 - (normalizedDist / maxDist) * 2;
                 const brightness = 1.2 - (normalizedDist / maxDist) * 0.8;
                 const colorIntensity = Math.floor(255 - (normalizedDist / maxDist) * 100);
-                const color = `rgba(255, ${colorIntensity}, ${255}, ${star1.alpha * brightness})`;
+                const color = `rgba(${colorIntensity}, ${colorIntensity}, ${colorIntensity}, ${star1.alpha * brightness})`;
 
                 ctx.beginPath();
                 ctx.moveTo(star1.x, star1.y);

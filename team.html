@@ -18,10 +18,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
 <!-- Favicon -->
-  <link rel="apple-touch-icon" href="img/favicon/favicon-180px.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32px.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96px.png">
-  <link rel="icon" type="image/png" sizes="144x144" href="img/favicon/favicon-144px.png">
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/favicon/android-chrome-512x512.png">
+  <link rel="icon" href="/img/favicon/favicon.ico" type="image/x-icon">
 
 
   <title>Oncko</title>
@@ -54,24 +56,24 @@
  <!-- Top Bar -->
   <div id="topBar" class="bg-black w-full fixed top-0 left-0 z-50 h-32 flex justify-center items-center">
     <a href="https://www.oncko.com" class="h-auto">
-      <img src="img/logovenn.png" alt="onckologo" class="h-24 max-h-full w-auto">
+      <img src="img/ONCKO-LOGO.svg" alt="onckologo" class="h-36 max-h-full w-auto">
     </a>
     <button id="menuToggle" class="text-white text-7xl absolute right-4 md:hidden" onclick="toggleMenu()">☰</button>
   </div>
 
   <!-- Navbar -->
-  <nav id="mainNavbar" class="bg-[#00c8ff] w-full md:fixed md:top-32 left-0 z-40 p-4 md:flex hidden justify-evenly">
+  <nav id="mainNavbar" class="bg-gradient-to-r from-[#CEE444] to-[#68e9ca] w-full md:fixed md:top-32 left-0 z-40 p-4 md:flex hidden justify-evenly">
     <ul class="flex w-full justify-evenly text-2xl font-bold">
-      <li><a href="https://www.oncko.com" class="text-black font-bold px-4 py-2 hover:bg-white focus:bg-white active:bg-white rounded-lg">Home</a></li>
+      <li><a href="https://www.oncko.com" class="text-black font-bold px-4 py-2 hover:bg-white focus:bg-white active:bg-white hover:border hover:border-black rounded-lg">Home</a></li>
     <li class="relative group">
-      <a href="https://www.oncko.com/team" class="text-black font-bold px-4 py-2 hover:bg-white rounded-lg">Us ▾</a>
-      <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-1 w-40 z-50">
+      <a href="https://www.oncko.com/team" class="text-black font-bold px-4 py-2 hover:bg-white hover:border hover:border-black rounded-lg">Us ▾</a>
+      <ul class="absolute hidden group-hover:block group-hover:border group-hover:border-black bg-white shadow-lg rounded-lg mt-1 w-40 z-50">
         <li><a href="https://www.oncko.com/team#team-section" class="block px-4 py-2 text-black hover:bg-gray-100 rounded-lg">Team</a></li>
         <li><a href="https://www.oncko.com/team#advisors-section" class="block px-4 py-2 text-black hover:bg-gray-100 rounded-lg">Advisors</a></li>
       </ul>
     </li>
-      <li><a href="https://www.oncko.com/publications" class="text-black font-bold px-4 py-2 hover:bg-white rounded-lg">Publications</a></li>
-      <li><a href="https://www.oncko.com/contact" class="text-black font-bold px-4 py-2 hover:bg-white rounded-lg">Contact</a></li>
+      <li><a href="https://www.oncko.com/publications" class="text-black font-bold px-4 py-2 hover:bg-white hover:border hover:border-black rounded-lg">Publications</a></li>
+      <li><a href="https://www.oncko.com/contact" class="text-black font-bold px-4 py-2 hover:bg-white hover:border hover:border-black rounded-lg">Contact</a></li>
     </ul>
   </nav>
 
@@ -131,11 +133,11 @@
     </div>
     </section>
 
-<div class="flex flex-wrap justify-center grid gap-4 md:grid-cols-3 lg:grid-cols-5">
+<div class="flex flex-wrap justify-center grid gap-8 md:grid-cols-3 lg:grid-cols-5">
 
 <!-- <div class="overflow-y-auto justify-items-center grid gap-4 md:grid-cols-3 lg:grid-cols-5"> -->
 
-<div class="max-w-sm bg-white border border-black rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+<div class="max-w-sm bg-white border-4 border-[#CEE444] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
   <img src="img/team/atray.png" alt="Atray Dixit" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Atray Dixit</h3><p class="text-md text-gray-700 mb-1">*CEO, Head of Data</p><div class="flex items-center justify-between w-full">
   <span class="text-lg"><button class="text-blue-500 float-left font-semibold px-1 hover:underline" data-modal="modal1">bio</button></span>
   <a href="https://www.linkedin.com/in/atray-dixit/" target="_blank">
@@ -144,7 +146,7 @@
 </div></p>
 </div></div>
 
-<div class="max-w-sm bg-white/95 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/wyatt.png" alt="Wyatt Morgan" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Wyatt Morgan</h3><p class="text-md text-gray-700 mb-1">*Head of Platform</p><div class="flex items-center justify-between w-full">
+<div class="max-w-sm bg-white/95 border-4 border-[#CEE444] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/wyatt.png" alt="Wyatt Morgan" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Wyatt Morgan</h3><p class="text-md text-gray-700 mb-1">*Head of Platform</p><div class="flex items-center justify-between w-full">
   <span class="text-lg"><button class="text-blue-500 float-left font-semibold px-1 hover:underline" data-modal="modal2">bio</button></span>
   <a href="https://www.linkedin.com/in/wyatt-s-morgan/" target="_blank">
     <i class="fa fa-linkedin-square text-2xl hover:scale-110 hover:shadow-lg transition-shadow duration-300" style="color:#0a66c2"></i>
@@ -152,7 +154,7 @@
 </div></p>
 </div></div>
 
-<div class="max-w-sm bg-white/95 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/bill.png" alt="Bill Grossman" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Bill Grossman</h3><p class="text-md text-gray-700 mb-1">*Head of R&D</p><div class="flex items-center justify-between w-full">
+<div class="max-w-sm bg-white/95 border-4 border-[#CEE444] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/bill.png" alt="Bill Grossman" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Bill Grossman</h3><p class="text-md text-gray-700 mb-1">*Head of R&D</p><div class="flex items-center justify-between w-full">
   <span class="text-lg"><button class="text-blue-500 float-left font-semibold px-1 hover:underline" data-modal="modal3">bio</button></span>
   <a href="https://www.linkedin.com/in/william-grossman-md-phd-7958018/" target="_blank">
     <i class="fa fa-linkedin-square text-2xl hover:scale-110 hover:shadow-lg transition-shadow duration-300" style="color:#0a66c2"></i>
@@ -162,7 +164,7 @@
 
 
 
-<div class="max-w-sm bg-white/95 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/andres.png" alt="Andrés Mañas Mañas" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Andrés Mañas</h3><p class="text-md text-gray-700 mb-1">AI Engineer</p><div class="flex items-center justify-between w-full">
+<div class="max-w-sm bg-white/95 border-4 border-[#CEE444] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/andres.png" alt="Andrés Mañas Mañas" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Andrés Mañas</h3><p class="text-md text-gray-700 mb-1">AI Engineer</p><div class="flex items-center justify-between w-full">
   <span class="text-lg"><button class="text-blue-500 float-left font-semibold px-1 hover:underline" data-modal="modal4">bio</button></span>
   <a href="https://www.linkedin.com/in/andresmanas/" target="_blank">
     <i class="fa fa-linkedin-square text-2xl hover:scale-110 hover:shadow-lg transition-shadow duration-300" style="color:#0a66c2"></i>
@@ -172,7 +174,7 @@
 
 
 
-<div class="max-w-sm bg-white/95 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/madinah.png" alt="Madinah Najib" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Madinah Najib</h3><p class="text-md text-gray-700 mb-1">Senior RA</p><div class="flex items-center justify-between w-full">
+<div class="max-w-sm bg-white/95 border-4 border-[#CEE444] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/madinah.png" alt="Madinah Najib" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Madinah Najib</h3><p class="text-md text-gray-700 mb-1">Senior RA</p><div class="flex items-center justify-between w-full">
   <span class="text-lg"><button class="text-blue-500 float-left font-semibold px-1 hover:underline" data-modal="modal5">bio</button></span>
   <a href="https://www.linkedin.com/in/madinah-n-030724146/" target="_blank">
     <i class="fa fa-linkedin-square text-2xl hover:scale-110 hover:shadow-lg transition-shadow duration-300" style="color:#0a66c2"></i>
@@ -186,9 +188,9 @@
 
 
 <h2 id="advisors-section" class="text-4xl font-bold text-center mt-16 mb-4">Advisors</h2>
-<div class="flex flex-wrap justify-center grid gap-4 md:grid-cols-3 lg:grid-cols-5">
+<div class="flex flex-wrap justify-center grid gap-8 md:grid-cols-3 lg:grid-cols-5">
 
-<div class="max-w-sm bg-white/95 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/apalmer.png" alt="Adam Palmer" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Adam Palmer</h3><p class="text-md text-gray-700 mb-1">Professor UNC</p><div class="flex items-center justify-between w-full">
+<div class="max-w-sm bg-white/95 border-4 border-[#CEE444] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/apalmer.png" alt="Adam Palmer" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Adam Palmer</h3><p class="text-md text-gray-700 mb-1">Professor UNC</p><div class="flex items-center justify-between w-full">
   <span class="text-lg"><button class="text-blue-500 float-left font-semibold px-1 hover:underline" data-modal="modal7">bio</button></span>
   <a href="https://www.linkedin.com/in/adam-palmer-02181814/" target="_blank">
     <i class="fa fa-linkedin-square text-2xl hover:scale-110 hover:shadow-lg transition-shadow duration-300" style="color:#0a66c2"></i>
@@ -196,13 +198,13 @@
 </div></p>
 </div></div>
 
-<!-- <div class="max-w-sm bg-white/95 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/lgilbert.png" alt="Luke Gilbert" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Luke Gilbert</h3><p class="text-md text-gray-700 mb-1">Professor UCSF, Arc</p><div class="flex items-center justify-between w-full">
+<div class="max-w-sm bg-white/95 border-4 border-[#CEE444] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">  <img src="img/team/lgilbert.png" alt="Luke Gilbert" class="w-full object-contain">  <div class="p-4">    <h3 class="text-xl text-slate-700 font-semibold mb-1">Luke Gilbert</h3><p class="text-md text-gray-700 mb-1">Professor UCSF, Arc</p><div class="flex items-center justify-between w-full">
   <span class="text-lg"><button class="text-blue-500 float-left font-semibold px-1 hover:underline" data-modal="modal8">bio</button></span>
   <a href="https://www.linkedin.com/in/luke-gilbert-482a1048/" target="_blank">
     <i class="fa fa-linkedin-square text-2xl hover:scale-110 hover:shadow-lg transition-shadow duration-300" style="color:#0a66c2"></i>
   </a>
 </div></p>
-</div></div> -->
+</div></div>
 
 </div>
 
@@ -214,11 +216,11 @@
   <div class="modal-content max-w-3xl w-full bg-white/95 p-8 rounded-lg">
     <span class="close" data-modal="modal1">&times;</span>
     <p class="text-xl text-left text-slate-700 mb-2 underline">Background</p>
-    <p class="text-md text-justify text-slate-700 mb-2">Atray was co-founder and CEO of Coral Genomics a company that focused creating diagnostic tests to predict individual patient drug (and drug combination) response. After being acquihired by Gordian Bio, he served as VP of Technology building in vivo perturbation screens in complex disease models including ungulates, monkeys, and more (side-by-side with Wyatt).<br><br>Atray has created genomics screening technologies including Perturb-seq (used throughout pharma and by many drug discovery startups incl. Xaira, insitro, Celsius, NewLimit, and Gordian) and Shuffle-seq</p>
+    <p class="text-md text-left text-slate-700 mb-2">Atray was co-founder and CEO of Coral Genomics a company that focused creating diagnostic tests to predict individual patient drug (and drug combination) response. After being acquihired by Gordian Bio, he served as VP of Technology building in vivo perturbation screens in complex disease models including ungulates, monkeys, and more (side-by-side with Wyatt).<br><br>Atray has created genomics screening technologies including Perturb-seq (used throughout pharma and by many drug discovery startups incl. Xaira, insitro, Celsius, NewLimit, and Gordian) and Shuffle-seq</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Education</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Atray earned his PhD from MIT working at the Broad Institute under the mentorship of Aviv Regev. He was inspired to pursue life sciences after his B.S.E. in Mechanical and Aerospace Engineering from Princeton as engineering tools like CRISPR and single cell sequencing finally allowed researchers to perturb and measure biology at scale.</p>
+  <p class="text-md text-left text-slate-700 mb-2">Atray earned his PhD from MIT working at the Broad Institute under the mentorship of Aviv Regev. He was inspired to pursue life sciences after his B.S.E. in Mechanical and Aerospace Engineering from Princeton as engineering tools like CRISPR and single cell sequencing finally allowed researchers to perturb and measure biology at scale.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">My role</p>
-  <p class="text-md text-justify text-slate-700 mb-2">In addition to his role as CEO, Atray leads our Data team's efforts to analyze public and proprietary data towards prioritizing drug combinations.</p>
+  <p class="text-md text-left text-slate-700 mb-2">In addition to his role as CEO, Atray leads our Data team's efforts to analyze public and proprietary data towards prioritizing drug combinations.</p>
   </div>
 </div>
 
@@ -227,11 +229,11 @@
   <div class="modal-content rounded-lg bg-white/95">
     <span class="close" data-modal="modal2">&times;</span>
     <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Background</p>
-    <p class="text-md text-justify text-slate-700 mb-2">Wyatt developed a combinatorial CRISPR screening platform at Weill Cornell in high school to study blood cancers. He graduated from Stanford in two years while working at Gordian Biotechnology, where he was the first RA promoted to scientist. At Gordian, Wyatt built and implemented an AAV-CRISPR platform for massive pooled in vivo screens, discovering and correcting sequence motifs responsible for AAV truncation and recombination along the way. Wyatt is now co-founding Oncko with Atray, his former boss at Gordian, and Bill, who they met as an advisor at the start of their journey.</p>
+    <p class="text-md text-left text-slate-700 mb-2">Wyatt developed a combinatorial CRISPR screening platform at Weill Cornell in high school to study blood cancers. He graduated from Stanford in two years while working at Gordian Biotechnology, where he was the first RA promoted to scientist. At Gordian, Wyatt built and implemented an AAV-CRISPR platform for massive pooled in vivo screens, discovering and correcting sequence motifs responsible for AAV truncation and recombination along the way. Wyatt is now co-founding Oncko with Atray, his former boss at Gordian, and Bill, who they met as an advisor at the start of their journey.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Education</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Wyatt did his Biology B.S. (molecular, cellular, and developmental biology) at Stanford. Previously, he attended the Bronx High School of Science.</p>
+  <p class="text-md text-left text-slate-700 mb-2">Wyatt did his Biology B.S. (molecular, cellular, and developmental biology) at Stanford. Previously, he attended the Bronx High School of Science.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">My role</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Wyatt leads the platform team to execute the largest combinatorial and resistance screens ever.</p>
+  <p class="text-md text-left text-slate-700 mb-2">Wyatt leads the platform team to execute the largest combinatorial and resistance screens ever.</p>
   </div>
 </div>
 
@@ -240,11 +242,11 @@
   <div class="modal-content rounded-lg bg-white/95">
     <span class="close" data-modal="modal3">&times;</span>
     <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Background</p>
-    <p class="text-md text-justify text-slate-700 mb-2">Bill was Senior Vice President and Therapeutic Area Head of Oncology Clinical Development at Gilead Sciences Inc. overseeing the company's Oncology portfolio. Prior to that, he held Chief Medical Officer roles at Arcus Biosciences and Bellicum Pharmaceuticals, and various leadership roles at AbbVie and Genentech/Roche.<br><br>Bill developed the newborn screening methodology for detecting primary immunodeficient/SCID newborns now incorporated across all States and multiple countries world-wide.</p>
+    <p class="text-md text-left text-slate-700 mb-2">Bill was Senior Vice President and Therapeutic Area Head of Oncology Clinical Development at Gilead Sciences Inc. overseeing the company's Oncology portfolio. Prior to that, he held Chief Medical Officer roles at Arcus Biosciences and Bellicum Pharmaceuticals, and various leadership roles at AbbVie and Genentech/Roche.<br><br>Bill developed the newborn screening methodology for detecting primary immunodeficient/SCID newborns now incorporated across all States and multiple countries world-wide.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Education</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Bill received his MD and PhD in Immunology from Washington University School of Medicine's Medical Scientist Training Program and completed his medical and post-doctoral training in the Divisions of Pediatrics and Medicine at Washington University School of Medicine.</p>
+  <p class="text-md text-left text-slate-700 mb-2">Bill received his MD and PhD in Immunology from Washington University School of Medicine's Medical Scientist Training Program and completed his medical and post-doctoral training in the Divisions of Pediatrics and Medicine at Washington University School of Medicine.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">My role</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Bill leads the Translation team's efforts to maximize the translation of our screens to clinically successful drugs including designing and executing our validation experiments.</p>
+  <p class="text-md text-left text-slate-700 mb-2">Bill leads the Translation team's efforts to maximize the translation of our screens to clinically successful drugs including designing and executing our validation experiments.</p>
   </div>
 </div>
 
@@ -253,13 +255,13 @@
   <div class="modal-content rounded-lg bg-white/95">
     <span class="close" data-modal="modal4">&times;</span>
     <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Background</p>
-    <p class="text-md text-justify text-slate-700 mb-2">Andrés has extensive experience in large-scale computational problem-solving and algorithm optimization. 
+    <p class="text-md text-left text-slate-700 mb-2">Andrés has extensive experience in large-scale computational problem-solving and algorithm optimization. 
 At Coral Genomics, he collaborated on the development of large scale genomics computational algorithms.
 He has also worked on recommendation systems, digital fraud detection, and large-scale data mining processes.<br><br>Andrés implemented DNARecords, an extensible sparse format for petabyte-scale genomics analysis, tackling computational challenges in large-scale data integration and deep learning model compatibility.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Education</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Andrés completed an MSc in Artificial Intelligence after several years working alongside data scientists, drawn by their expertise. His academic background includes a BSc in Mathematics from the University of Almería, but it is the blend of mathematics, machine learning, and large-scale data that fuels his professional growth.</p>
+  <p class="text-md text-left text-slate-700 mb-2">Andrés completed an MSc in Artificial Intelligence after several years working alongside data scientists, drawn by their expertise. His academic background includes a BSc in Mathematics from the University of Almería, but it is the blend of mathematics, machine learning, and large-scale data that fuels his professional growth.</p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">My role</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Andrés orchestrates Oncko's data pipelines, machine learning, and IT solutions.</p>
+  <p class="text-md text-left text-slate-700 mb-2">Andrés orchestrates Oncko's data pipelines, machine learning, and IT solutions.</p>
   </div>
 </div>
 
@@ -269,30 +271,13 @@ He has also worked on recommendation systems, digital fraud detection, and large
   <div class="modal-content rounded-lg bg-white/95">
     <span class="close" data-modal="modal5">&times;</span>
     <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Background</p>
-    <p class="text-md text-justify text-slate-700 mb-2">Madinah was a research associate at Aperture Therapeutics, developing in vitro functional and biochemical screens evaluating candidate oligonucleotide therapies for neurodegenerative diseases. She previously held roles at leading biopharma companies, including Singular Genomics, Becton Dickinson, and Takeda Pharmaceuticals.<br><br>Madinah produced majority of the data used to advance two novel oligonucleotide therapeutic programs into preclinical rodent studies.
+    <p class="text-md text-left text-slate-700 mb-2">Madinah was a research associate at Aperture Therapeutics, developing in vitro functional and biochemical screens evaluating candidate oligonucleotide therapies for neurodegenerative diseases. She previously held roles at leading biopharma companies, including Singular Genomics, Becton Dickinson, and Takeda Pharmaceuticals.<br><br>Madinah produced majority of the data used to advance two novel oligonucleotide therapeutic programs into preclinical rodent studies.
 </p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Education</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Madinah has a B.S. in Pharmacological Chemistry from University of California, San Diego.
+  <p class="text-md text-left text-slate-700 mb-2">Madinah has a B.S. in Pharmacological Chemistry from University of California, San Diego.
 </p>
   <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">My role</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Madinah focuses on optimizing and executing pooled, combinatorial, perturbation screens as part of target identification and validation efforts.
-</p>
-  </div>
-</div>
-
-<!-- Modal 5 -->
-<div id="modal6" class="modal">
-  <div class="modal-content rounded-lg bg-white/95">
-    <span class="close" data-modal="modal6">&times;</span>
-    <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Background</p>
-    <p class="text-md text-justify text-slate-700 mb-2">Arnold was a scientist at Eikon Therapeutics, where he developed multiple cell based assays for drug discovery, leveraging Eikon's proprietary single molecule tracking platform technology. As part of this, he spearheaded high throughput primary screening efforts to identify novel small molecule and supported pre-clinical programs advancement through lead optimization into IND-enabling studies. He led a high-throughput primary screening campaign that uncovered novel and tractable chemical series for oncology drug target
-
-</p>
-  <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">Education</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Arnold earned his PhD in Biomedical Engineering from Duke University and his B.S in Biochemical Engineering from Washington University in St. Louis.
-</p>
-  <p class="text-xl text-left text-slate-700 font-semibold mb-2 underline">My role</p>
-  <p class="text-md text-justify text-slate-700 mb-2">Arnold focuses on analyzing, identifying, and validating screening hits from Oncko's massive combinatorial screens, while also helping to scale up the Shuffle-seq screening platform end to end.
+  <p class="text-md text-left text-slate-700 mb-2">Madinah focuses on optimizing and executing pooled, combinatorial, perturbation screens as part of target identification and validation efforts.
 </p>
   </div>
 </div>
@@ -301,13 +286,11 @@ He has also worked on recommendation systems, digital fraud detection, and large
 <div id="modal7" class="modal">
   <div class="modal-content rounded-lg bg-white/95">
     <span class="close" data-modal="modal7">&times;</span>
-    <p class="text-md text-justify text-slate-700 mb-2">
+<p class="text-lg font-bold text-left text-blue-600 dark:text-blue-500 hover:underline mb-2">
+<a href="https://www.med.unc.edu/pharm/palmerlab/">The Palmer Laboratory Website</a></p>
+<p class="text-md text-left text-slate-700 mb-2">
+<br>
 The Palmer Laboratory investigates combinations of cancer therapies: understanding the mechanisms of successful drug combinations, to inform the development of combinations with new cancer therapies. Our approach is a synthesis of experimental studies, computational analysis of clinical data, and mathematical modeling.
-<br><br>
-I have a particular interest in the clinical implications of variation in drug response between patients and between cells (a consequence of inter-tumor and intra-tumor heterogeneity). Because heterogeneity is a universal feature of cancers and their responses to therapy, this research impacts our understanding of treatment success and failure across many forms of cancer and types of therapies.
-<br><br>
-Our experimental focus is on curative combination therapies for aggressive lymphomas; many new therapies have been developed for these diseases, and we are taking a systematic approach to find optimal drug combinations for different patient subsets. The basic and translational research we are pursuing serves the practical goal of improving the design of drug combinations and the interpretation of clinical trials that test them.
-
 </p>
   </div>
 </div>
@@ -316,7 +299,12 @@ Our experimental focus is on curative combination therapies for aggressive lymph
 <div id="modal8" class="modal">
   <div class="modal-content rounded-lg bg-white/95">
     <span class="close" data-modal="modal8">&times;</span>
-    <p class="text-md text-justify text-slate-700 mb-2">
+
+<p class="text-lg font-bold text-left text-blue-600 dark:text-blue-500 hover:underline mb-2">
+<a href="https://www.gilbertlabucsf.com/research">The Gilbert Laboratory Website</a></p>
+<p class="text-md text-left text-slate-700 mb-2">
+<br>
+    <p class="text-md text-slate-700 mb-2">
 The Gilbert laboratory's expertise is in synthetic biology, functional genomics and cancer biology. We are interested in new ways to model and overcome drug resistance in prostate cancer, hematopoietic malignancies and lung cancer. We use genome scale screens, genetic interaction mapping and genome engineering to model and map the genetic and epigenetic causes underlying why some patients are cured and others are not by cancer therapy. We are also building new CRISPR tools to edit the epigenome which will allow us to manipulate gene expression in new ways.
 
 </p>
