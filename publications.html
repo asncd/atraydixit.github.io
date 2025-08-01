@@ -98,12 +98,14 @@
 
 
 <canvas class="filter brightness-100" id="starCanvas"></canvas>
-  <main class="max-w-7xl mx-auto px-4 py-10 pt-[13rem] md:pt-[14rem]">
+<main class="scroll-pt-40 max-w-7xl mx-auto px-4 py-10 pt-32 md:pt-36">
     <section class="text-center mb-1">
-      <h1 class="text-5xl font-bold mb-1">Our Publications</h1>
+    <div class="bg-black/0">
+      <h1 id="pubs" class="scroll-mt-60 text-5xl font-bold mb-1">Our Publications</h1>
+    </div>
     </section>
 
-    <div class="overflow-y-auto grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+<div class="flex flex-wrap justify-center grid gap-6 md:grid-cols-3 lg:grid-cols-4">
       <!-- Publication Card -->
       <div class="max-w-sm bg-white/95 border-4 border-[#CEE444] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
         <img src="img/perturbseq.png" alt="Publication 1" class="w-full object-contain">
